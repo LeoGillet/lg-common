@@ -1,0 +1,6 @@
+numpy
+biopython
+matplotlib
+pandas
+fillpdf
+ete3
