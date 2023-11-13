@@ -1,6 +1,12 @@
 #!/bin/bash
 cd /tmp/dep-installers/downloads
 
+# Install bowtie2
+echo "Downloading bowtie2..."
+wget -O bowtie2.zip https://sourceforge.net/projects/bowtie-bio/files/bowtie2/2.5.2/bowtie2-2.5.2-source.zip/download
+unzip bowtie2.zip
+cd bowtie2-2.5.2; make
+
 # Install BWA
 echo "Downloading BWA..."
 git clone https://github.com/lh3/bwa.git /opt/bwa
@@ -68,3 +74,5 @@ git clone https://github.com/rcedgar/muscle.git /opt/muscle
 echo "Compiling MUSCLE..."
 cd /opt/muscle/src; make
 ln -s /opt/muscle/src/Linux/muscle /usr/bin/muscle
+
+cd /; rm -rf /tmp/dep-installers
