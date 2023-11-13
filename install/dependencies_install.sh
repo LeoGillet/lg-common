@@ -5,7 +5,9 @@ cd /tmp/dep-installers/downloads
 echo "Downloading bowtie2..."
 wget -O bowtie2.zip https://sourceforge.net/projects/bowtie-bio/files/bowtie2/2.5.2/bowtie2-2.5.2-source.zip/download
 unzip bowtie2.zip
-cd bowtie2-2.5.2; make
+mv bowtie2-2.5.2 /opt/bowtie2; cd /opt/bowtie2; make
+ln -s /opt/bowtie2/bowtie2 /usr/bin/bowtie2
+ln -s /opt/bowtie2/bowtie2-build /usr/bin/bowtie2-build
 
 # Install BWA
 echo "Downloading BWA..."

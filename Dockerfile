@@ -10,7 +10,7 @@ RUN apk add --update --no-cache bash
 SHELL ["/bin/bash", "-c"]
 CMD /bin/bash
 
-# Installing Java 11 & Perl
+# Install Java 11 & Perl
 RUN apk add --update --no-cache openjdk11 perl
 
 # Install Python 3 and pip
