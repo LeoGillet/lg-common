@@ -12,7 +12,7 @@ ln -s /opt/bbmap/bbmap.sh /usr/bin/bbmap.sh
 # Install k-SLAM
 git clone https://github.com/LeoGillet/k-SLAM.git /opt/k-SLAM
 cd /opt/k-SLAM/build; make; cd ..; mv build/SLAM ./
-ln -s ./SLAM /usr/bin/SLAM
+ln -s /opt/k-SLAM/SLAM /usr/bin/SLAM
 
 # Install bowtie2
 echo "Downloading bowtie2..."
