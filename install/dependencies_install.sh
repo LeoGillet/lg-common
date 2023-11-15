@@ -1,6 +1,18 @@
 #!/bin/bash
 cd /tmp/dep-installers/downloads
 
+# Install BBMap
+echo "Downloading BBMap..."
+wget -O bbmap.tar.gz https://sourceforge.net/projects/bbmap/files/BBMap_39.04.tar.gz/download
+tar xf bbmap.tar.gz
+mv bbmap /opt/
+ln -s /opt/bbmap/clumpify.sh /usr/bin/clumpify.sh
+ln -s /opt/bbmap/bbmap.sh /usr/bin/bbmap.sh
+
+# Install k-SLAM
+git clone https://github.com/aindj/k-SLAM.git /opt/k-SLAM
+cd /opt/k-SLAM/build; make; cd ..; mv build/SLAM ./; ln -s ./SLAM /usr/bin/SLAM
+
 # Install bowtie2
 echo "Downloading bowtie2..."
 wget -O bowtie2.zip https://sourceforge.net/projects/bowtie-bio/files/bowtie2/2.5.2/bowtie2-2.5.2-source.zip/download
