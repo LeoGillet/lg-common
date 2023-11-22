@@ -40,5 +40,10 @@ RUN pip3 install -r /tmp/requirements.txt
 RUN chmod +x /tmp/dep-installers/dependencies_install.sh
 RUN /tmp/dep-installers/dependencies_install.sh
 
+
+# Install bioinformatics tools
+RUN chmod +x /tmp/dep-installers/agent_install.sh
+RUN /tmp/dep-installers/agent_install.sh
+
 # Remove unused building tools
 RUN apk del .build-deps
