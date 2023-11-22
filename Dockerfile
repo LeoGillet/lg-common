@@ -35,15 +35,15 @@ RUN /tmp/dep-installers/xtensor.sh
 COPY python/requirements.txt /tmp/requirements.txt
 RUN pip3 install -r /tmp/requirements.txt
 
+# Install Agilent AGeNT
+RUN chmod +x /tmp/dep-installers/agent_install.sh
+RUN /tmp/dep-installers/agent_install.sh
 
 # Install bioinformatics tools
 RUN chmod +x /tmp/dep-installers/dependencies_install.sh
 RUN /tmp/dep-installers/dependencies_install.sh
 
-
-# Install bioinformatics tools
-RUN chmod +x /tmp/dep-installers/agent_install.sh
-RUN /tmp/dep-installers/agent_install.sh
+RUN rm -rf /tmp/dep-installers
 
 # Remove unused building tools
 RUN apk del .build-deps

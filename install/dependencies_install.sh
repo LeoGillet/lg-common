@@ -89,5 +89,3 @@ git clone https://github.com/rcedgar/muscle.git /opt/muscle
 echo "Compiling MUSCLE..."
 cd /opt/muscle/src; make
 ln -s /opt/muscle/src/Linux/muscle /usr/bin/muscle
-
-cd /; rm -rf /tmp/dep-installers
