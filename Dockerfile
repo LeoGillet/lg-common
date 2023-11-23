@@ -21,6 +21,7 @@ RUN pip3 install --no-cache --upgrade pip setuptools wheel
 # Install dev/build tools
 RUN apk add --update --no-cache --virtual .build-deps git make musl-dev linux-headers gcc g++ cmake libc-dev zlib-dev ncurses-dev bzip2-dev xz-dev python3-dev py3-numpy py3-numpy-dev jpeg-dev
 RUN apk add --update --no-cache --virtual .kslam-deps boost-dev libgomp
+RUN apk add --update --no-cache --virtual .snappy-deps gcompat
 
 # Prepare tool compilation
 RUN mkdir /tmp/dep-installers
