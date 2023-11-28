@@ -19,9 +19,10 @@ RUN python3 -m ensurepip
 RUN pip3 install --no-cache --upgrade pip setuptools wheel
 
 # Install dev/build tools
-RUN apk add --update --no-cache --virtual .build-deps git make musl-dev linux-headers gcc g++ cmake libc-dev zlib-dev ncurses-dev bzip2-dev xz-dev python3-dev py3-numpy py3-numpy-dev jpeg-dev
+RUN apk add --update --no-cache --virtual .build-deps git make musl-dev linux-headers gcc g++ cmake libc-dev zlib-dev ncurses-dev bzip2-dev xz-dev python3-dev jpeg-dev
 RUN apk add --update --no-cache --virtual .kslam-deps boost-dev libgomp
 RUN apk add --update --no-cache --virtual .snappy-deps gcompat
+RUN apk add --update --no-cache --virtual .numpy-deps py3-numpy py3-numpy-dev
 
 # Prepare tool compilation
 RUN mkdir /tmp/dep-installers
@@ -35,7 +36,6 @@ RUN /tmp/dep-installers/xtensor.sh
 # Install python dependencies
 COPY python/requirements.txt /tmp/requirements.txt
 RUN pip3 install -r /tmp/requirements.txt
-RUN pip3 install numpy
 
 # Install Agilent AGeNT
 RUN chmod +x /tmp/dep-installers/agent_install.sh
