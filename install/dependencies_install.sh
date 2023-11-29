@@ -34,11 +34,13 @@ echo "Downloading samtools and bcftools..."
 cd /tmp/dep-installers/downloads
 wget -O samtools.tar.bz2 https://github.com/samtools/samtools/releases/download/1.18/samtools-1.18.tar.bz2
 wget -O bcftools.tar.bz2 https://github.com/samtools/bcftools/releases/download/1.18/bcftools-1.18.tar.bz2
+wget -O htslib.tar.bz2 https://github.com/samtools/htslib/releases/download/1.18/htslib-1.18.tar.bz2
 
 # Extracting samtools and bcftools
 echo "Extracting samtools and bcftools..."
 tar -xf samtools.tar.bz2
 tar -xf bcftools.tar.bz2
+tar -xf htslib.tar.bz2
 
 # Compiling samtools
 echo "Compiling samtools..."
@@ -53,6 +55,12 @@ echo "Compiling bcftools..."
 cd /tmp/dep-installers/downloads/bcftools-1.18; ./configure --prefix=/opt/bcftools; make; make install
 ln -s /opt/bcftools/bin/bcftools /usr/bin/bcftools
 ln -s /opt/bcftools/bin/vcfutils.pl /usr/bin/vcfutils.pl
+
+# Compiling htslib
+echo "Compiling htslib..."
+cd /tmp/dep-installers/downloads/htslib-1.18; ./configure --prefix=/opt/htslib; make; make install
+ln -s /opt/htslib/bin/tabix /usr/bin/tabix
+
 
 # Install seqtk
 echo "Downloading seqtk..."
