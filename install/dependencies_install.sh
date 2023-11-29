@@ -97,3 +97,8 @@ git clone https://github.com/rcedgar/muscle.git /opt/muscle
 echo "Compiling MUSCLE..."
 cd /opt/muscle/src; make
 ln -s /opt/muscle/src/Linux/muscle /usr/bin/muscle
+
+# Install SeqKit
+wget -O seqkit.tar.gz https://github.com/shenwei356/seqkit/releases/download/v2.6.1/seqkit_linux_amd64.tar.gz
+tar xf seqkit.tar.gz
+mv seqkit /usr/bin/seqkit
