@@ -61,7 +61,6 @@ echo "Compiling htslib..."
 cd /tmp/dep-installers/downloads/htslib-1.18; ./configure --prefix=/opt/htslib; make; make install
 ln -s /opt/htslib/bin/tabix /usr/bin/tabix
 
-
 # Install seqtk
 echo "Downloading seqtk..."
 git clone https://github.com/lh3/seqtk.git /opt/seqtk;
@@ -76,6 +75,7 @@ wget -O bedtools.tar.gz https://github.com/arq5x/bedtools2/releases/download/v2.
 tar xf bedtools.tar.gz
 mv bedtools2 /opt/; cd /opt/bedtools2; make
 ln -s /opt/bedtools2/bin/bedtools /usr/bin/bedtools 
+ln -s /opt/bedtools2/bin/fastaFromBed /usr/bin/fastaFromBed
 
 # Install fastp
 echo "Downloading fastp..."
