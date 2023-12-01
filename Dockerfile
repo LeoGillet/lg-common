@@ -26,7 +26,9 @@ RUN apk add --update --no-cache --virtual .numpy-deps py3-numpy py3-numpy-dev
 
 # Prepare tool compilation
 RUN mkdir /tmp/dep-installers
-COPY install/* /tmp/dep-installers/
+COPY install/agent_install.sh /tmp/dep-installers/
+COPY install/dependencies_install.sh /tmp/dep-installers/
+COPY install/xtensor.sh /tmp/dep-installers/
 RUN mkdir /tmp/dep-installers/downloads
 
 # Install xtl, xtensor
